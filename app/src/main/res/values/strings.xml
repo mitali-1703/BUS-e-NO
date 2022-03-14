@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Bus-e-No</string>
     <string name="login_as">LOGIN AS</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 </resources>
