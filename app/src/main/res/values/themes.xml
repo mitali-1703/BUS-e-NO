@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.BuseNo" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-<!--        <item name="windowActionBar">true</item>-->
-<!--        <item name="windowNoTitle">false</item>-->
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
         <item name="colorPrimary">#623FA2</item>
         <item name="colorPrimaryVariant">#48228C</item>
         <item name="colorOnPrimary">@color/white</item>
