@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.BuseNo" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="windowActionBar">true</item>
-        <item name="windowNoTitle">false</item>
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
         <item name="colorPrimary">#623FA2</item>
         <item name="colorPrimaryVariant">#48228C</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -14,12 +14,16 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
 
     <style name="login_as">
-
         <item name="android:textSize">32sp</item>
+    </style>
 
+    <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
     </style>
 
 </resources>

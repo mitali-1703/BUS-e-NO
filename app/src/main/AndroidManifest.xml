@@ -10,15 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuseNo">
         <activity
-            android:name=".AboutUsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HelpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HomeScreen"
-            android:exported="true"
-            android:label="Bus-e-No">
+            android:name=".NavigationDrawerActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,13 +19,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PersonalDetailsActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".AboutUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HelpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeScreen"
+            android:exported="false"
+            android:label="Bus-e-No">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".PersonalDetailsActivity"
+            android:exported="false">
         </activity>
         <activity
             android:name=".LoginActivity"

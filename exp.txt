@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/group1">
+        <item android:id="@+id/profile"
+            android:icon="@drawable/ic_profile_menu"
+            android:title="@string/profile">
+        </item>
+
+        <item android:id="@+id/qrcode"
+            android:icon="@drawable/ic_qrcode_scanner"
+            android:title="@string/qr_code">
+        </item>
+
+        <item android:id="@+id/rolesManagementBtnMain"
+            android:icon="@drawable/ic_staff"
+            android:title="@string/roles_management"/>
+        <item
+            android:id="@+id/plansMainDrawer"
+            android:visible="true"
+            android:title="Your Plans">
+            <menu>
+                <item android:id="@+id/subscriptionPlansDrawer"
+                    android:icon="@drawable/ic_purchase_menu"
+                    android:title="@string/subscription_plans_drawer">
+                </item>
+            </menu>
+        </item>
+
+    </group>
+    <group android:id="@+id/group2">
+<!--        <item android:id="@+id/guide"-->
+<!--            android:icon="@drawable/ic_guide_menu"-->
+<!--            android:title="@string/guide">-->
+<!--        </item>-->
+
+
+
+<!--        <item android:id="@+id/notification_settings_owner"-->
+<!--            android:icon="@drawable/ic_notification_setting"-->
+<!--            android:title="@string/notification_setting">-->
+<!--        </item>-->
+    </group>
+
+    <group android:id="@+id/group3">
+        <item android:id="@+id/faq_videos_owner"
+            android:icon="@drawable/ic_faq_videos"
+            android:title="@string/faq_videos">
+        </item>
+        <item android:id="@+id/settings"
+            android:icon="@drawable/ic_settings_menu"
+            android:title="@string/settings">
+        </item>
+        <item android:id="@+id/about"
+            android:icon="@drawable/ic_about_menu"
+            android:title="@string/about">
+        </item>
+        <item android:id="@+id/referUs"
+            android:icon="@drawable/ic_refer"
+            android:title="@string/refer">
+        </item>
+    </group>
+    <group android:id="@+id/group4">
+        <item android:id="@+id/help_and_support_owner"
+            android:icon="@drawable/ic_help_and_support"
+            android:title="@string/help_title">
+        </item>
+        <item android:id="@+id/logout"
+            android:icon="@drawable/ic_action_name"
+            android:title="@string/log_out">
+        </item>
+        <item android:id="@+id/app_name_ver"
+            android:icon="@drawable/ic_notification_icon"
+            android:title="@string/karobar">
+        </item>
+    </group>
+
+
+</menu>
