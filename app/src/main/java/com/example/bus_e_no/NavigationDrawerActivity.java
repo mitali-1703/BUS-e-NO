@@ -11,8 +11,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.navigation.NavigationView;
 
 public class NavigationDrawerActivity extends AppCompatActivity {
@@ -26,6 +28,11 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
 
+        //BottomSheet Code--->
+//        FrameLayout frameLayout = findViewById(R.id.frameLayout);
+//        BottomSheetBehavior<FrameLayout> behavior =  BottomSheetBehavior.from(frameLayout);
+//        behavior.setPeekHeight(200);
+//        behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
 
 //        //To change the color of the Toolbar
 //        Toolbar toolbar = findViewById(R.id.toolbar);

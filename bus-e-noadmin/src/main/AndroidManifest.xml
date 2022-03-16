@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bus_e_no">
+    package="com.example.bus_e_noadmin">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuseNo">
         <activity
-            android:name=".AllBusActivity"
+            android:name=".DialogBox"
+            android:exported="false" />
+        <activity
+            android:name=".EditBusActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,29 +22,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NavigationDrawerActivity"
-            android:exported="false">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
+            android:name=".AddNewBusActivity"
+            android:exported="true"></activity>
         <activity
-            android:name=".AboutUsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HelpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PersonalDetailsActivity"
+            android:name=".MainActivity"
             android:exported="false"></activity>
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegistrationActivity"
-            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"

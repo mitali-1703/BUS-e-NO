@@ -3,5 +3,6 @@
     <string name="login_as">LOGIN AS</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="all_buses">All Buses</string>
 
 </resources>
