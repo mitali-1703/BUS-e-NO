@@ -14,4 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Bus-e-No"
 include ':app'
-include ':bus-e-no'
+include ':bus-e-no_admin'
+include ':bus-e-noadmin'
