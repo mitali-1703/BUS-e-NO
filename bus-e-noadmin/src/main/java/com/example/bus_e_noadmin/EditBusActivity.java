@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 
 import com.example.bus_e_noadmin.databinding.ActivityEditBusBinding;
@@ -20,10 +21,10 @@ public class EditBusActivity extends AppCompatActivity {
         b = ActivityEditBusBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
 
-        MaterialToolbar materialToolbar = findViewById(R.id.appBar);
+
 //        To tell the Activity that the ActionBar coming on this Activity isn't the default Theme ActionBar but its the custom Toolbar
 //        that we have made for this activity
-        setSupportActionBar(materialToolbar);
+        setSupportActionBar(b.appBar);
 
 
 //        Dialog Box
@@ -34,7 +35,7 @@ public class EditBusActivity extends AppCompatActivity {
 
                 builder.setMessage("Discard the change you made?")
                         .setCancelable(false)
-                        .setPositiveButton("Discard", new DialogInterface.OnClickListener() {
+                        .setPositiveButton(Html.fromHtml("<font color='#d32f2f'>Discard</font>"), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 

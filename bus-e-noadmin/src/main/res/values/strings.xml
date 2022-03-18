@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Bus-e-NoAdmin</string>
+    <string name="all_buses">All Buses</string>
 </resources>
