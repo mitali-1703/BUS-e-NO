@@ -50,65 +50,24 @@
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/course"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="24dp"
-        android:text="Course:"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLayoutName" />
-
-    <TextView
-        android:id="@+id/busNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="64dp"
-        android:text="Bus Number:"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLayoutName" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textLayoutCourse"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="145dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="14dp"
-        android:hint="B.Tech. CSE"
-        app:layout_constraintEnd_toStartOf="@+id/textLayoutBus"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/course">
-
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteCourse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textLayoutBus"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="119dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="34dp"
-        android:hint="01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Bus Route Number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textLayoutCourse"
-        app:layout_constraintTop_toBottomOf="@+id/course">
+        app:layout_constraintTop_toBottomOf="@+id/textLayoutName">
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteBus"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="none"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -118,9 +77,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Role:"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLayoutCourse" />
+        app:layout_constraintTop_toBottomOf="@+id/textLayoutBus" />
 
     <RadioGroup
         android:id="@+id/radioGroup1"
@@ -131,29 +90,29 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/role"
-        app:layout_constraintTop_toBottomOf="@+id/textLayoutCourse">
+        app:layout_constraintTop_toBottomOf="@+id/textLayoutBus">
 
         <RadioButton
             android:id="@+id/radioStudent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:buttonTint="#623FA2"
+            android:theme="@style/RadioButtonStyle"
             android:checked="true"
             android:paddingLeft="4dp"
             android:text="Student"
             android:textColor="#8C000000"
-            android:textSize="22sp" />
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioFaculty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:buttonTint="#623FA2"
+            android:theme="@style/RadioButtonStyle"
             android:paddingLeft="4dp"
             android:text="Faculty"
             android:textColor="#8C000000"
-            android:textSize="22sp" />
+            android:textSize="20sp" />
 
     </RadioGroup>
 
@@ -174,22 +133,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:buttonTint="#623FA2"
+            android:theme="@style/RadioButtonStyle"
             android:checked="true"
             android:paddingLeft="4dp"
             android:text="Morning"
             android:textColor="#8C000000"
-            android:textSize="22sp" />
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioEvening"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:buttonTint="#623FA2"
+            android:theme="@style/RadioButtonStyle"
             android:paddingLeft="4dp"
             android:text="Evening"
             android:textColor="#8C000000"
-            android:textSize="22sp" />
+            android:textSize="20sp" />
 
     </RadioGroup>
 
@@ -200,39 +159,53 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Shift:"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/role" />
 
     <TextView
-        android:id="@+id/yearOfGraduation"
+        android:id="@+id/course"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="Year of Graduation:"
-        android:textSize="22sp"
+        android:layout_marginTop="60dp"
+        android:text="Course:"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shift" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textLayoutGraduation"
+        android:id="@+id/textLayoutCourse"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="117dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:hint="2023"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/yearOfGraduation"
+        app:layout_constraintStart_toEndOf="@+id/course"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup2">
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteGraduation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:text="B.Tech. CSE" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="#623FA2"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/saveButton"

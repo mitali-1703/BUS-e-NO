@@ -5,10 +5,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.bus_e_noadmin.adapter.Adapter;
 import com.example.bus_e_noadmin.model.Model;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,13 +29,33 @@ public class AllBusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_bus);
 
+        ImageView edit = findViewById(R.id.cardImage1);
+        ImageView delete = findViewById(R.id.cardImage2);
+
+
         initData();
         initRecyclerView();
+
 
         MaterialToolbar materialToolbar = findViewById(R.id.appBar);
 //        To tell the Activity that the ActionBar coming on this Activity isn't the default Theme ActionBar but its the custom Toolbar
 //        that we have made for this activity
         setSupportActionBar(materialToolbar);
+
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar snackbar = Snackbar.make(v,"Sure to remove bus?", BaseTransientBottomBar.LENGTH_LONG);
+                snackbar.setAction("UNDO", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //TODO: DO SOMETHING HERE
+                    }
+                });
+                snackbar.show();
+            }
+        });
 
     }
 
@@ -68,4 +92,5 @@ public class AllBusActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
+
 }

@@ -165,14 +165,14 @@
         android:id="@+id/cancelButton"
         android:layout_width="146dp"
         android:layout_height="49dp"
-        android:layout_marginStart="88dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/button_design"
         android:text="Cancel"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/addButton" />
 
     <Button
         android:id="@+id/addButton"
