@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BuseNo">
+
+
         <activity
-            android:name=".AllBusActivity"
+            android:name=".SplashScreenActivity"
+            android:theme="@style/Theme.BuseNo.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,30 +21,75 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity
-            android:name=".NavigationDrawerActivity"
-            android:exported="false">
+            android:name=".AllBusActivity"
+            android:exported="true">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
         </activity>
+
+
         <activity
-            android:name=".AboutUsActivity"
-            android:exported="false" />
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.BuseNo.NoActionBar">
+
+<!--             <intent-filter>-->
+<!--             <action android:name="android.intent.action.MAIN" />-->
+
+
+<!--             <category android:name="android.intent.category.LAUNCHER" />-->
+<!--             </intent-filter>-->
+        </activity>
+
+
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false"
+            android:label="About"
+            android:parentActivityName=".MainActivity"/>
+
+
         <activity
             android:name=".HelpActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
+
+
         <activity
             android:name=".PersonalDetailsActivity"
-            android:exported="false"></activity>
+            android:theme="@style/Theme.BuseNo.NoActionBar"
+            android:exported="true" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
+
         <activity
             android:name=".LoginActivity"
+            android:theme="@style/Theme.BuseNo.NoActionBar"
             android:exported="false" />
+
+
         <activity
             android:name=".RegistrationActivity"
-            android:exported="true" />
+            android:theme="@style/Theme.BuseNo.NoActionBar"
+            android:exported="true" >
+<!--            <intent-filter>-->
+<!--                            <action android:name="android.intent.action.MAIN" />-->
+
+<!--                            <category android:name="android.intent.category.LAUNCHER" />-->
+<!--                        </intent-filter>-->
+        </activity>
+
 
         <meta-data
             android:name="preloaded_fonts"

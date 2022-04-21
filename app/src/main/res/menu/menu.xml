@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/help"
+        android:title="Help"
+        android:icon="@drawable/ic_help"
+        app:showAsAction="ifRoom"/>
     <item
         android:title="Bell"
         android:id="@+id/bellIcon"
         android:icon="@drawable/ic_bell"
         app:showAsAction="ifRoom"/>
-
 </menu>

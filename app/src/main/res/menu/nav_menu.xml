@@ -8,19 +8,15 @@
     android:title="Edit Profile"
     android:icon="@drawable/ic_edit"/>
     <item
-    android:id="@+id/help"
-    android:title="Help"
-        android:icon="@drawable/ic_help"/>
+        android:id="@+id/about"
+        android:title="About"
+        android:icon="@drawable/ic_info"/>
 
     <item
         android:id="@+id/other"
         android:visible="true"
         android:title="Other">
     <menu>
-        <item
-            android:id="@+id/aboutUs"
-            android:title="About Us"
-            android:icon="@drawable/ic_info"/>
         <item
             android:id="@+id/share"
             android:title="Share"
