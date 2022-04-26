@@ -11,15 +11,13 @@
         android:theme="@style/Theme.BuseNo">
         <activity
             android:name=".AllBusActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".DialogBox"
             android:exported="false" />
         <activity
             android:name=".EditBusActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".AddNewBusActivity"
             android:exported="true">
@@ -31,7 +29,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"

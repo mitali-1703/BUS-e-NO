@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/help"
-        android:title="Help"
-        android:icon="@drawable/ic_help"
-        app:showAsAction="ifRoom"/>
+<!--    <item-->
+<!--        android:id="@+id/help"-->
+<!--        android:title="Help"-->
+<!--        android:icon="@drawable/ic_help"-->
+<!--        app:showAsAction="ifRoom"/>-->
     <item
         android:title="Bell"
         android:id="@+id/bellIcon"

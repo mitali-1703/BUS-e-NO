@@ -3,12 +3,15 @@ package com.example.bus_e_no;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.bus_e_no.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
@@ -48,17 +51,32 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(about);
                         return true;
 
-//                        case R.id.share:
-//                        Intent share = new Intent(MainActivity.this,PersonalDetailsActivity.class);
-//                        startActivity(share);
-//                        return true;
-//
-//                    case R.id.feedback:
-//                        Intent feed = new Intent(MainActivity.this,PersonalDetailsActivity.class);
-//                        startActivity(feed);
-//                        return true;
+                        case R.id.share:
+                        Intent share = new Intent(Intent.ACTION_SEND);
+                        share.setType("text/plain");
+                        String body = "Hey! Download Bus-e-No app of our college to have all details about your bus";
+                        share.putExtra(Intent.EXTRA_TEXT,body);
+                        startActivity(Intent.createChooser(share,"Share Using"));
+                        return true;
+
+                    case R.id.contact:
+                        Intent intent = new Intent(Intent.ACTION_SENDTO);
+                        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+                        intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback/Suggestions/Queries/Bug Reporting Bus-e-No ");
+                        if (intent.resolveActivity(getPackageManager()) != null) {
+                            startActivity(intent);
+                        }
+                        return true;
                 }
                 return true;
+            }
+        });
+
+        b.allBuses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,AllBusActivity.class);
+                startActivity(i);
             }
         });
     }
@@ -71,10 +89,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.bellIcon:
+            case android.R.id.home:
+                b.drawerLayout.openDrawer(GravityCompat.START);
                 return true;
-            case R.id.help:
 
+            case R.id.bellIcon:
+                Intent i = new Intent(MainActivity.this,NotificationsActivity.class);
+                startActivity(i);
                 return true;
         }
         return super.onOptionsItemSelected(item);
