@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bus_e_no">
-
+<uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,86 +10,82 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuseNo">
 
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="true"
+            android:label="Notifications"
+            android:parentActivityName=".MainActivity">
+        </activity>
 
         <activity
             android:name=".SplashScreenActivity"
-            android:theme="@style/Theme.BuseNo.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.BuseNo.NoActionBar">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".AllBusActivity"
+            android:exported="true"
+            android:label="All Buses"
+            android:parentActivityName=".MainActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.BuseNo.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
-            android:name=".AllBusActivity"
-            android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            android:name=".AboutActivity"
+            android:exported="true"
+            android:label="About"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PersonalDetailsActivity"
+            android:exported="true"
+            android:label="Edit Profile"
+            android:parentActivityName=".MainActivity">
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
-
-
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BuseNo.NoActionBar" />
+        <activity
+            android:name=".RegistrationActivity"
             android:exported="true"
             android:theme="@style/Theme.BuseNo.NoActionBar">
 
-<!--             <intent-filter>-->
-<!--             <action android:name="android.intent.action.MAIN" />-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
 
-<!--             <category android:name="android.intent.category.LAUNCHER" />-->
-<!--             </intent-filter>-->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
-
-
-        <activity
-            android:name=".AboutActivity"
-            android:exported="false"
-            android:label="About"
-            android:parentActivityName=".MainActivity"/>
-
-
-        <activity
-            android:name=".HelpActivity"
-            android:exported="false">
-        </activity>
-
-
-        <activity
-            android:name=".PersonalDetailsActivity"
-            android:theme="@style/Theme.BuseNo.NoActionBar"
-            android:exported="true" >
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
-
-
-        <activity
-            android:name=".LoginActivity"
-            android:theme="@style/Theme.BuseNo.NoActionBar"
-            android:exported="false" />
-
-
-        <activity
-            android:name=".RegistrationActivity"
-            android:theme="@style/Theme.BuseNo.NoActionBar"
-            android:exported="true" >
-<!--            <intent-filter>-->
-<!--                            <action android:name="android.intent.action.MAIN" />-->
-
-<!--                            <category android:name="android.intent.category.LAUNCHER" />-->
-<!--                        </intent-filter>-->
-        </activity>
-
 
         <meta-data
             android:name="preloaded_fonts"

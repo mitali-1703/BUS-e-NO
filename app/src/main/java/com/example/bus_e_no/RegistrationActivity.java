@@ -92,30 +92,16 @@ public class RegistrationActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
-                            //For registration of user
                             if (task.isSuccessful()) {
-                                User user = new User(emailInput);
-
-                                //Saving user's data on Cloud FireStore Database
-                                fStore.collection("Users").add(user)
-                                        .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<DocumentReference> task) {
-                                                b.progressBar.setVisibility(View.GONE);
-                                                Intent intent = new Intent(RegistrationActivity.this, PersonalDetailsActivity.class);
-                                                startActivity(intent);
-                                                Toast.makeText(RegistrationActivity.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(RegistrationActivity.this, "Failed to register! Try again!", Toast.LENGTH_SHORT).show();
-                                        b.progressBar.setVisibility(View.GONE);
-                                    }
-                                });
-                            } else {
-                                Toast.makeText(RegistrationActivity.this, "Failed to register! Try again!", Toast.LENGTH_SHORT).show();
                                 b.progressBar.setVisibility(View.GONE);
+                                Intent intent = new Intent(RegistrationActivity.this,PersonalDetailsActivity.class);
+                                intent.putExtra("EMAIL_ID", emailInput);
+                                startActivity(intent);
+                                Toast.makeText(RegistrationActivity.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            } else {
+                                b.progressBar.setVisibility(View.GONE);
+                                Toast.makeText(RegistrationActivity.this, "Failed to register! Try again!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

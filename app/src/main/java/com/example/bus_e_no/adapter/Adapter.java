@@ -1,5 +1,8 @@
 package com.example.bus_e_no.adapter;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.core.motion.utils.Utils;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bus_e_no.R;
@@ -36,6 +40,16 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         int image = userList.get(position).getImageView();
 
         holder.setData(busNo,driverName,image);
+
+        Bundle bundle = new Bundle();
+        bundle.putString("Call","Call Driver");
+        Utils.logEvent(this,"Call_Bus_Driver",bundle);
+
+        String number = ("tel:+91"+);
+        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+        callIntent.setData(Uri.parse(number));
+        start
+
     }
 
     @Override
