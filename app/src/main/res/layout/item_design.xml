@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="8dp"
+    android:layout_margin="1dp"
     app:elevation="50dp"
     app:cardUseCompatPadding="true">
 
@@ -23,9 +23,9 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="bottom"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="16dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
             android:text="Bus No. 1"
             android:textSize="18sp"
             android:textAppearance="?attr/textAppearanceHeadline6" />
@@ -36,18 +36,17 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="top"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="16dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
             android:text="Driver's Name"
             android:textSize="16sp"
             android:textAppearance="?attr/textAppearanceHeadline6" />
     </LinearLayout>
-
     <ImageView
         android:id="@+id/cardImage"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="16dp"
         android:layout_centerVertical="true"
