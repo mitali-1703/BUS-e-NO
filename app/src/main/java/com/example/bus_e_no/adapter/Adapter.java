@@ -1,8 +1,8 @@
 package com.example.bus_e_no.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +10,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.core.motion.utils.Utils;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bus_e_no.R;
 import com.example.bus_e_no.model.Model;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     List<Model> userList;
-    public Adapter(List<Model> userList){
+    Context context;
+    List<String> contactList = Arrays.asList("9834784738","6436483822","8974897384","8736139870","8074730740","7646238947",
+                                            "7893784733","8959868590","8745875096","6895865555","7087570444","7580705809",
+                                            "7490470909","9897908960","8998989898");
+
+    public Adapter(Context context,List<Model> userList){
+        this.context = context;
         this.userList = userList;
     }
 
@@ -39,17 +45,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         String driverName = userList.get(position).getTextView2();
         int image = userList.get(position).getImageView();
 
-        holder.setData(busNo,driverName,image);
-
-        Bundle bundle = new Bundle();
-        bundle.putString("Call","Call Driver");
-        Utils.logEvent(this,"Call_Bus_Driver",bundle);
-
-        String number = ("tel:+91"+);
-        Intent callIntent = new Intent(Intent.ACTION_DIAL);
-        callIntent.setData(Uri.parse(number));
-        start
-
+        holder.setData(busNo,driverName,image,position);
     }
 
     @Override
@@ -71,10 +67,23 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             imageView = itemView.findViewById(R.id.cardImage);
         }
 
-        public void setData(String busNo, String driverName, int image) {
+        public void makeCall(int index){
+            String number = ("tel:+91"+contactList.get(index));
+            Intent callIntent = new Intent(Intent.ACTION_DIAL);
+            callIntent.setData(Uri.parse(number));
+            context.startActivity(callIntent);
+        }
+
+        public void setData(String busNo, String driverName, int image,int index) {
             text1.setText(busNo);
             text2.setText(driverName);
             imageView.setImageResource(image);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    makeCall(index);
+                }
+            });
         }
     }
 }
