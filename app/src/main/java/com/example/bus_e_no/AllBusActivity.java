@@ -1,5 +1,6 @@
 package com.example.bus_e_no;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,7 +9,13 @@ import android.os.Bundle;
 
 import com.example.bus_e_no.adapter.Adapter;
 import com.example.bus_e_no.model.Model;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +32,14 @@ public class AllBusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_bus);
 
-        initData();
-        initRecyclerView();
+        userList = new ArrayList<>();
+//        initData();
+//        initRecyclerView();
+        showData();
     }
 
     private void initData() {
-        userList = new ArrayList<>();
+
         userList.add(new Model("Route - 01","Driver's Name",R.drawable.ic_callicon));
         userList.add(new Model("Route - 02","Driver's Name",R.drawable.ic_callicon));
         userList.add(new Model("Route - 03","Driver's Name",R.drawable.ic_callicon));
@@ -66,9 +75,23 @@ public class AllBusActivity extends AppCompatActivity {
     private void initRecyclerView() {
         recyclerView = findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
         adapter = new Adapter(this,userList);
         recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        recyclerView.setLayoutManager(layoutManager);
+//        adapter.notifyDataSetChanged();
+    }
+
+    private void showData() {
+        FirebaseFirestore.getInstance().collection("DriverData").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        for(DocumentSnapshot document : task.getResult()){
+                            Model model = new Model(document.getString("Bus Name"),document.getString("Name"));
+                            userList.add(model);
+                        }
+                        initRecyclerView();
+                    }
+                });
     }
 }

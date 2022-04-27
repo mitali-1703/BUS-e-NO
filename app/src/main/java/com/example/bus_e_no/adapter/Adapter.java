@@ -77,7 +77,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         public void setData(String busNo, String driverName, int image,int index) {
             text1.setText(busNo);
             text2.setText(driverName);
-            imageView.setImageResource(image);
+//            imageView.setImageResource(image);
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

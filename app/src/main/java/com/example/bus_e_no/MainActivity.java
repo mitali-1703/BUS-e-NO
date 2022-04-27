@@ -14,7 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.bus_e_no.databinding.ActivityMainBinding;
+import com.example.bus_e_no.model.Model;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -79,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        showData();
     }
 
     // override the onOptionsItemSelected()
@@ -108,5 +116,17 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
+    }
+
+    private void showData() {
+        FirebaseFirestore.getInstance().collection("DriverData").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        for(DocumentSnapshot document : task.getResult()) {
+
+                        }
+                    }
+                });
     }
 }
