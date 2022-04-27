@@ -67,7 +67,7 @@ public class AllBusActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new Adapter(userList);
+        adapter = new Adapter(this,userList);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
