@@ -9,9 +9,11 @@
 
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:id="@+id/activity_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <!--        Custom ActionBar(ToolBar)-->
         <com.google.android.material.appbar.AppBarLayout
@@ -32,148 +34,148 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <!--    Content that will be shown on Activity-->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/materialCardView"
-            android:layout_width="360dp"
-            android:layout_height="360dp"
-            android:layout_marginTop="40dp"
-            android:backgroundTint="#584181"
-            android:elevation="@dimen/cardview_compat_inset_shadow"
-            android:orientation="vertical"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+<!--        &lt;!&ndash;    Content that will be shown on Activity&ndash;&gt;-->
+<!--        <com.google.android.material.card.MaterialCardView-->
+<!--            android:id="@+id/materialCardView"-->
+<!--            android:layout_width="360dp"-->
+<!--            android:layout_height="360dp"-->
+<!--            android:layout_marginTop="40dp"-->
+<!--            android:backgroundTint="#584181"-->
+<!--            android:elevation="@dimen/cardview_compat_inset_shadow"-->
+<!--            android:orientation="vertical"-->
+<!--            app:cardCornerRadius="10dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/appBarLayout">-->
 
-            <LinearLayout
-                android:id="@+id/mainLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/mainLayout"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
 
-                <LinearLayout
-                    android:id="@+id/childLayout1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/childLayout1"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal">-->
 
-                    <TextView
-                        android:id="@+id/busNo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:paddingTop="30dp"
-                        android:text="BUS NUMBER - 17"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="22sp" />
-                </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:id="@+id/busNo"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/poppins_semibold"-->
+<!--                        android:paddingTop="30dp"-->
+<!--                        android:text="BUS NUMBER - 17"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="22sp" />-->
+<!--                </LinearLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/childLayout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/childLayout2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:orientation="horizontal">-->
 
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginLeft="42dp"
-                        android:src="@drawable/ic_person" />
+<!--                    <ImageView-->
+<!--                        android:layout_width="32dp"-->
+<!--                        android:layout_height="32dp"-->
+<!--                        android:layout_marginLeft="42dp"-->
+<!--                        android:src="@drawable/ic_person" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:text="Jaswant Singh"
-                        android:textColor="@color/white"
-                        android:textSize="19sp" />
-                </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="24dp"-->
+<!--                        android:text="Jaswant Singh"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="19sp" />-->
+<!--                </LinearLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/childLayout3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/childLayout3"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:orientation="horizontal">-->
 
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginLeft="42dp"
-                        android:src="@drawable/ic_phone" />
+<!--                    <ImageView-->
+<!--                        android:layout_width="32dp"-->
+<!--                        android:layout_height="32dp"-->
+<!--                        android:layout_marginLeft="42dp"-->
+<!--                        android:src="@drawable/ic_phone" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:text="+911234567890"
-                        android:textColor="@color/white"
-                        android:textSize="19sp" />
-                </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="24dp"-->
+<!--                        android:text="+911234567890"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="19sp" />-->
+<!--                </LinearLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/childLayout4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/childLayout4"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:orientation="horizontal">-->
 
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginLeft="42dp"
-                        android:src="@drawable/ic_bus" />
+<!--                    <ImageView-->
+<!--                        android:layout_width="32dp"-->
+<!--                        android:layout_height="32dp"-->
+<!--                        android:layout_marginLeft="42dp"-->
+<!--                        android:src="@drawable/ic_bus" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:text="RJ 14 PA 7632"
-                        android:textColor="@color/white"
-                        android:textSize="19sp" />
-                </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="24dp"-->
+<!--                        android:text="RJ 14 PA 7632"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="19sp" />-->
+<!--                </LinearLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/childLayout5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/childLayout5"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:orientation="horizontal">-->
 
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginLeft="42dp"
-                        android:src="@drawable/ic_location" />
+<!--                    <ImageView-->
+<!--                        android:layout_width="32dp"-->
+<!--                        android:layout_height="32dp"-->
+<!--                        android:layout_marginLeft="42dp"-->
+<!--                        android:src="@drawable/ic_location" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:text="JECRC University, Vidhani, Sitapura, Jaipur, Rajasthan"
-                        android:textColor="@color/white"
-                        android:textSize="19sp" />
-                </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="24dp"-->
+<!--                        android:text="JECRC University, Vidhani, Sitapura, Jaipur, Rajasthan"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="19sp" />-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+<!--        </com.google.android.material.card.MaterialCardView>-->
 
-        <Button
-            android:id="@+id/allBuses"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="116dp"
-            android:text="All Buses"
-            android:textSize="20sp"
-            android:background="@drawable/button_design"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+<!--        <Button-->
+<!--            android:id="@+id/allBuses"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="116dp"-->
+<!--            android:text="All Buses"-->
+<!--            android:textSize="20sp"-->
+<!--            android:background="@drawable/button_design"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.498"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/materialCardView" />-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
     <!--    For Navigation Drawer-->
     <com.google.android.material.navigation.NavigationView
