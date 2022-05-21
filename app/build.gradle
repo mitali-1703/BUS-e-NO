@@ -51,4 +51,11 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
+
+    //Google-Services-Location : To update location
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+    //Dexter : To request runtime permission
+    implementation 'com.karumi:dexter:6.2.3'
+    //EventBus : To send event between activity/service
+    implementation 'org.greenrobot:eventbus-java:3.3.1'
 }

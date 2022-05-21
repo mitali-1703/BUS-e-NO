@@ -87,12 +87,6 @@ public class PersonalDetailsActivity extends AppCompatActivity {
             return;
         }
 
-        if(!nameInput.matches("([A-Z][a-z]*){3,}+[A-Z]+(['-][a-zA-Z]+)*")){
-            b.textEditName.setError("Invalid name!");
-            b.textEditName.requestFocus();
-            return;
-        }
-
         // get selected radio button from radioGroup1
         int radioID1 = b.radioGroup1.getCheckedRadioButtonId();
 
