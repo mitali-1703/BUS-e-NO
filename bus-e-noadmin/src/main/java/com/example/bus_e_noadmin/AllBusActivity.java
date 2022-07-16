@@ -38,8 +38,11 @@ public class AllBusActivity extends AppCompatActivity {
 
 
         MaterialToolbar materialToolbar = findViewById(R.id.appBar);
-//        To tell the Activity that the ActionBar coming on this Activity isn't the default Theme ActionBar but its the custom Toolbar
-//        that we have made for this activity
+
+/**        To tell the Activity that the ActionBar coming on this Activity
+ *          isn't the default Theme ActionBar but its the custom Toolbar
+ *          that we have made for this activity
+ */
         setSupportActionBar(materialToolbar);
 
 

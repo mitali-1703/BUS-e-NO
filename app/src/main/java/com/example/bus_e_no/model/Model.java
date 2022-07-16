@@ -1,30 +1,34 @@
 package com.example.bus_e_no.model;
 
+/** Model Class to hold the data of the driver
+ * @param
+ */
+
 public class Model {
-    private String textView1;
-    private String textView2;
-    private int imageView;
+    private String busRouteNumber;
+    private String driverName;
+    private int callIcon;
 
-    public Model(String textView1, String textView2, int imageView){
-        this.textView1 = textView1;
-        this.textView2 = textView2;
-        this.imageView = imageView;
+    public Model(String busRouteNumber, String driverName, int callIcon){
+        this.busRouteNumber = busRouteNumber;
+        this.driverName = driverName;
+        this.callIcon = callIcon;
     }
 
-    public Model(String textView1, String textView2){
-        this.textView1 = textView1;
-        this.textView2 = textView2;
+    public Model(String busRouteNumber, String driverName){
+        this.busRouteNumber = busRouteNumber;
+        this.driverName = driverName;
     }
 
-    public String getTextView1() {
-        return textView1;
+    public String getBusRouteNumber() {
+        return busRouteNumber;
     }
 
-    public String getTextView2() {
-        return textView2;
+    public String getDriverName() {
+        return driverName;
     }
 
-    public int getImageView() {
-        return imageView;
+    public int getCallIcon() {
+        return callIcon;
     }
 }

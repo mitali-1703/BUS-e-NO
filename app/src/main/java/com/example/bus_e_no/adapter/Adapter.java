@@ -41,9 +41,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
 
-        String busNo = userList.get(position).getTextView1();
-        String driverName = userList.get(position).getTextView2();
-        int image = userList.get(position).getImageView();
+        String busNo = userList.get(position).getBusRouteNumber();
+        String driverName = userList.get(position).getDriverName();
+        int image = userList.get(position).getCallIcon();
 
         holder.setData(busNo,driverName,image,position);
     }

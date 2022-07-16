@@ -1,31 +1,31 @@
 package com.example.bus_e_noadmin.model;
 
 public class Model {
-    private String textView1;
-    private String textView2;
-    private int imageView1;
-    private int imageView2;
+    private String busName;
+    private String busRouteNumber;
+    private int editIcon;
+    private int deleteIcon;
 
-    public Model(String textView1, String textView2, int imageView1,int imageView2){
-        this.textView1 = textView1;
-        this.textView2 = textView2;
-        this.imageView1 = imageView1;
-        this.imageView2 = imageView2;
+    public Model(String busName, String busRouteNumber, int editIcon,int deleteIcon){
+        this.busName = busName;
+        this.busRouteNumber = busRouteNumber;
+        this.editIcon = editIcon;
+        this.deleteIcon = deleteIcon;
     }
 
-    public String getTextView1() {
-        return textView1;
+    public String getBusName() {
+        return busName;
     }
 
-    public String getTextView2() {
-        return textView2;
+    public String getBusRouteNumber() {
+        return busRouteNumber;
     }
 
-    public int getImageView1() {
-        return imageView1;
+    public int getEditIcon() {
+        return editIcon;
     }
 
-    public int getImageView2() {
-        return imageView2;
+    public int getDeleteIcon() {
+        return deleteIcon;
     }
 }

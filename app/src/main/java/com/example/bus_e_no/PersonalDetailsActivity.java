@@ -73,7 +73,6 @@ public class PersonalDetailsActivity extends AppCompatActivity {
     }
 
 
-
     private void onSaveButton() {
 
         //Getting email from RegistrationActivity through intent
@@ -87,24 +86,25 @@ public class PersonalDetailsActivity extends AppCompatActivity {
             return;
         }
 
-        // get selected radio button from radioGroup1
+        // Get the selected radio button from radioGroup1
         int radioID1 = b.radioGroup1.getCheckedRadioButtonId();
 
-        // find the radiobutton by returned id
+        // Find the radiobutton by returned id
         RadioButton radioButton1 = findViewById(radioID1);
         String radioValue1 = (String) radioButton1.getText();
 
 
-        // get selected radio button from radioGroup2
+        // Get the selected radio button from radioGroup2
         int radioID2 = b.radioGroup2.getCheckedRadioButtonId();
 
-        // find the radiobutton by returned id
+        // Find the radiobutton by returned id
         RadioButton radioButton2 = findViewById(radioID2);
         String radioValue2 = (String) radioButton2.getText();
 
         b.progressBar.setVisibility(View.VISIBLE);
 
         User user = new User(nameInput,busRoute,radioValue1,radioValue2,course);
+
 
         //Saving user's data on Cloud FireStore Database
         FirebaseFirestore.getInstance().collection("Users").document(email).set(user)
