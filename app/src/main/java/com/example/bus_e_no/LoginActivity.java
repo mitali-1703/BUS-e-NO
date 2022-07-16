@@ -18,6 +18,8 @@ public class LoginActivity extends AppCompatActivity {
         b = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
 
+        b.ccp.registerCarrierNumberEditText(b.enterNumEdt);
+
         b.getOtpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
