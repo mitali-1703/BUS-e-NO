@@ -16,6 +16,17 @@
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
 
+
+    <!-- Style for Splash Screen -->
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="colorPrimary">#623FA2</item>
+        <item name="colorPrimaryVariant">#48228C</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    </style>
+
+
 <!--    Style created to remove ActionBar-->
     <style name="Theme.BuseNo.NoActionBar">
         <item name="windowActionBar">false</item>

@@ -11,18 +11,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //This method will be executed once the timer is over
-                // Start your app's main activity
-                Intent i = new Intent(SplashScreenActivity.this, RegistrationActivity.class);
-                startActivity(i);
-                // close this activity
-                finish();
-            }
-        }, 3000);
-
+        startActivity(new Intent(SplashScreenActivity.this,LoginActivity.class));
+        finish();
     }
 }

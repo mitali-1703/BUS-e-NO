@@ -23,12 +23,16 @@ public class AddNewBusActivity extends AppCompatActivity {
         setContentView(b.getRoot());
 
 
-//        To tell the Activity that the ActionBar coming on this Activity isn't the default Theme ActionBar but its the custom Toolbar
-//        that we have made for this activity
+/**        To tell the Activity that the ActionBar coming on this Activity
+ *          isn't the default Theme ActionBar but its the custom Toolbar
+ *          that we have made for this activity
+ */
         setSupportActionBar(b.appBar);
 
 
-//        Dialog Box
+/**        Dialog Box that pops up when Cancel button is
+ *         clicked by the admin while adding the data of a new bus
+ */
         b.cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

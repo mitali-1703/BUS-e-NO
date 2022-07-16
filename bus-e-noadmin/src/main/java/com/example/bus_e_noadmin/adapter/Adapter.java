@@ -31,10 +31,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
 
-        String busNo = userList.get(position).getTextView1();
-        String driverName = userList.get(position).getTextView2();
-        int image1 = userList.get(position).getImageView1();
-        int image2 = userList.get(position).getImageView2();
+        String busNo = userList.get(position).getBusName();
+        String driverName = userList.get(position).getBusRouteNumber();
+        int image1 = userList.get(position).getEditIcon();
+        int image2 = userList.get(position).getDeleteIcon();
 
         holder.setData(busNo,driverName,image1,image2);
     }
