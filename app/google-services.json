@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1058461536774",
+    "firebase_url": "https://bus-e-no-default-rtdb.firebaseio.com",
     "project_id": "bus-e-no",
     "storage_bucket": "bus-e-no.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1058461536774-golgj9h4a10r9fi1npia2voekorgvp17.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bus_e_no",
+            "certificate_hash": "ebd761d62048443b4ca1aabbfe13ea56545263de"
+          }
+        },
         {
           "client_id": "1058461536774-hlhpi863up4egunocv69pl6p087s65f4.apps.googleusercontent.com",
           "client_type": 3
