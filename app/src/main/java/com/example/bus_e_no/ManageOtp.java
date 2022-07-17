@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -41,22 +43,52 @@ public class ManageOtp extends AppCompatActivity {
 
         phoneNumber = getIntent().getStringExtra("mobile").toString();
 
+        b.tvResendBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ManageOtp.this, "OTP Sent Successfully.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         initiateOtp();
+
+        editTextInput();
 
         b.vfyOtpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(b.enterOtpEdt.getText().toString().isEmpty())
-                    Toast.makeText(ManageOtp.this, "Blank field can't be processed", Toast.LENGTH_SHORT).show();
-                else if(b.enterOtpEdt.getText().toString().length()!=6)
-                    Toast.makeText(ManageOtp.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
-                else{
-                    PhoneAuthCredential credential = PhoneAuthProvider.getCredential(otpid,b.enterOtpEdt.getText().toString());
-                    signInWithPhoneAuthCredential(credential);
+                b.progressBarVerify.setVisibility(View.VISIBLE);
+                b.vfyOtpBtn.setVisibility(View.INVISIBLE);
+                if (b.etC1.getText().toString().trim().isEmpty() ||
+                        b.etC2.getText().toString().trim().isEmpty() ||
+                        b.etC3.getText().toString().trim().isEmpty() ||
+                        b.etC4.getText().toString().trim().isEmpty() ||
+                        b.etC5.getText().toString().trim().isEmpty() ||
+                        b.etC6.getText().toString().trim().isEmpty()) {
+                    b.progressBarVerify.setVisibility(View.INVISIBLE);
+                    b.vfyOtpBtn.setVisibility(View.VISIBLE);
+                    Toast.makeText(ManageOtp.this, "OTP is not Valid!", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (phoneNumber != null) {
+                        String code = b.etC1.getText().toString().trim() +
+                                b.etC2.getText().toString().trim() +
+                                b.etC3.getText().toString().trim() +
+                                b.etC4.getText().toString().trim() +
+                                b.etC5.getText().toString().trim() +
+                                b.etC6.getText().toString().trim();
+
+                        //To check that OTP entered by the user matches the one sent by Firebase,
+                        // we are creating an PhoneAuthCredential object.
+                        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(otpid, code);
+                        signInWithPhoneAuthCredential(credential);
+
+                    }
                 }
             }
         });
     }
+
 
     // To send Verification code(OTP) to user's phone
     private void initiateOtp() {
@@ -84,25 +116,113 @@ public class ManageOtp extends AppCompatActivity {
                             public void onVerificationFailed(@NonNull FirebaseException e) {
                                 Toast.makeText(ManageOtp.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
-                        })          // OnVerificationStateChangedCallbacks
+                        })         // OnVerificationStateChangedCallbacks
                         .build();
-        PhoneAuthProvider.verifyPhoneNumber(options);
-    }
+                PhoneAuthProvider.verifyPhoneNumber(options);
+            }
 
 
-    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
-        mAuth.signInWithCredential(credential)
+            private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+                mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(ManageOtp.this,MainActivity.class));
+                            b.progressBarVerify.setVisibility(View.VISIBLE);
+                            b.vfyOtpBtn.setVisibility(View.INVISIBLE);
+                            startActivity(new Intent(ManageOtp.this, MainActivity.class));
+                            Toast.makeText(ManageOtp.this, "Welcome...", Toast.LENGTH_SHORT).show();
                             finish();
-                        } 
-                        else {
+                        } else {
+                            b.progressBarVerify.setVisibility(View.GONE);
+                            b.vfyOtpBtn.setVisibility(View.VISIBLE);
                             Toast.makeText(ManageOtp.this, "Signin Code Error", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+            }
+
+
+    private void editTextInput() {
+        b.etC1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                b.etC2.requestFocus();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        b.etC2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                b.etC3.requestFocus();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        b.etC3.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                b.etC4.requestFocus();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        b.etC4.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                b.etC5.requestFocus();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        b.etC5.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                b.etC6.requestFocus();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 }
