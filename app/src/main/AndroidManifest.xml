@@ -78,8 +78,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:exported="false"
-            android:theme="@style/Theme.BuseNo.NoActionBar" />
+            android:exported="false" />
         <activity
             android:name=".RegistrationActivity"
             android:exported="true"
