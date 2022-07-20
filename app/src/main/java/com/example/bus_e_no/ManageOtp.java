@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 
 import com.example.bus_e_no.databinding.ActivityManageOtpBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
@@ -22,6 +25,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.concurrent.TimeUnit;
 
@@ -31,6 +37,7 @@ public class ManageOtp extends AppCompatActivity {
     String phoneNumber;
     String otpid;
     private FirebaseAuth mAuth;
+    Boolean otpVerify;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,7 @@ public class ManageOtp extends AppCompatActivity {
         b = ActivityManageOtpBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
 
+//        otpVerify = false;
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
@@ -128,11 +136,64 @@ public class ManageOtp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            otpVerify = true;
+                            SharedPreferences prefs = getSharedPreferences("verified",MODE_PRIVATE);
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putString("verify", String.valueOf(otpVerify));
+                            editor.putBoolean("isVerified",true);
+                            editor.apply();
+
                             b.progressBarVerify.setVisibility(View.VISIBLE);
                             b.vfyOtpBtn.setVisibility(View.INVISIBLE);
-                            startActivity(new Intent(ManageOtp.this, MainActivity.class));
-                            Toast.makeText(ManageOtp.this, "Welcome...", Toast.LENGTH_SHORT).show();
-                            finish();
+
+                            /** Checking if the user that is trying to log in is a registered user or not by
+                             * getting user's phone number's unique id
+                             */
+                            FirebaseUser user = task.getResult().getUser();
+                            String uid = user.getUid();
+                            FirebaseFirestore.getInstance().collection("Users").document(phoneNumber).get()
+                                            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                                @Override
+                                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                                    if(documentSnapshot.exists()){
+//                                                        b.progressBarVerify.setVisibility(View.VISIBLE);
+//                                                        b.vfyOtpBtn.setVisibility(View.INVISIBLE);
+                                                        startActivity(new Intent(ManageOtp.this, HomeActivity.class));
+                                                        Toast.makeText(ManageOtp.this, "Welcome...", Toast.LENGTH_SHORT).show();
+                                                    } else {
+                                                        Intent intent = new Intent(ManageOtp.this, RegistrationActivity.class);
+                                                        intent.putExtra("phone", phoneNumber);
+                                                        startActivity(intent);
+                                                    }
+                                                    finish();
+                                                }
+                                            });
+
+//                            b.progressBarVerify.setVisibility(View.VISIBLE);
+//                            b.vfyOtpBtn.setVisibility(View.INVISIBLE);
+//                            startActivity(new Intent(ManageOtp.this, HomeActivity.class));
+//                            Toast.makeText(ManageOtp.this, "Welcome...", Toast.LENGTH_SHORT).show();
+//                            finish();
+
+//                            DocumentReference docIdRef = FirebaseFirestore.getInstance().collection("Users").document(phoneNumber);
+//                            docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                                    if (task.isSuccessful()) {
+//                                        DocumentSnapshot document = task.getResult();
+//                                        if (document.exists()) {
+//                                            startActivity(new Intent(ManageOtp.this, HomeActivity.class));
+//                                            Toast.makeText(ManageOtp.this, "Welcome...", Toast.LENGTH_SHORT).show();
+//                                            finish();
+//                                        }
+//                                    } else {
+//                                        startActivity(new Intent(ManageOtp.this, RegistrationActivity.class));
+//                                        finish();
+//                                    }
+//                                }
+//                            });
+
+
                         } else {
                             b.progressBarVerify.setVisibility(View.GONE);
                             b.vfyOtpBtn.setVisibility(View.VISIBLE);

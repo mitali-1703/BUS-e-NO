@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -25,6 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class RegistrationActivity extends AppCompatActivity {
     ActivityRegistrationBinding b;
     String busRoute;
+    String phoneNumber;
 
     String[] busRoutes = {"Route-01", "Route-02", "Route-03", "Route-04", "Route-05", "Route-06", "Route-07",
             "Route-08", "Route-09", "Route-10", "Route-11", "Route-12", "Route-13", "Route-14", "Route-15",
@@ -39,6 +41,7 @@ public class RegistrationActivity extends AppCompatActivity {
         b = ActivityRegistrationBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
 
+        phoneNumber = getIntent().getStringExtra("phone").toString();
 
         busRouteItems = new ArrayAdapter<>(this, R.layout.bus_route_item, busRoutes);
         b.autoCompleteBus.setAdapter(busRouteItems);
@@ -61,7 +64,6 @@ public class RegistrationActivity extends AppCompatActivity {
     public void registerButton() {
         String nameInput = b.textEditName.getEditableText().toString().trim();
         String emailInput = b.textEditEmail.getEditableText().toString().trim();
-        String phoneInput = b.textEditPhn.getEditableText().toString().trim();
         String selectedBusRoute = busRoute;
 
         if (nameInput.isEmpty()) {
@@ -82,17 +84,14 @@ public class RegistrationActivity extends AppCompatActivity {
             return;
         }
 
-        if (phoneInput.isEmpty()) {
-            b.textEditPhn.setError("Phone Number is required!");
-            b.textEditPhn.requestFocus();
-            return;
-        }
 
-        if (phoneInput.length() != 10) {
-            b.textEditPhn.setError("Invalid Phone Number!");
-            b.textEditPhn.requestFocus();
-            return;
-        }
+        SharedPreferences prefs = getSharedPreferences("register",MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("name",nameInput);
+        editor.putString("email",emailInput);
+        editor.putString("route",selectedBusRoute);
+        editor.putBoolean("isRegistered",true);
+        editor.apply();
 
         b.progressBar.setVisibility(View.VISIBLE);
 
@@ -100,7 +99,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
         /** Checking if the user already exists */
-        DocumentReference docIdRef = FirebaseFirestore.getInstance().collection("Users").document(phoneInput);
+        DocumentReference docIdRef = FirebaseFirestore.getInstance().collection("Users").document(phoneNumber);
         docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -111,19 +110,18 @@ public class RegistrationActivity extends AppCompatActivity {
                         Toast.makeText(RegistrationActivity.this, "User already exists!", Toast.LENGTH_SHORT).show();
                         b.textEditName.getText().clear();
                         b.textEditEmail.getText().clear();
-                        b.textEditPhn.getText().clear();
                         b.autoCompleteBus.setText(null);
                         return;
                     } else {
 
                         //Saving user's data on Cloud FireStore
-                        FirebaseFirestore.getInstance().collection("Users").document(phoneInput).set(regUser)
+                        FirebaseFirestore.getInstance().collection("Users").document(phoneNumber).set(regUser)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
                                         b.progressBar.setVisibility(View.GONE);
                                         Toast.makeText(RegistrationActivity.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+                                        Intent intent = new Intent(RegistrationActivity.this, HomeActivity.class);
                                         startActivity(intent);
                                         finish();
                                     }
